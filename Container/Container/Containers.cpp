@@ -4,7 +4,7 @@ using namespace std;
 
 Container::~Container()
 {
-
+	size = 0;
 }
 
 MyArray::MyArray()
@@ -24,6 +24,9 @@ MyArray::MyArray(int n)
 MyArray::MyArray(const MyArray & ar)
 {
 	size = ar.size;
+	this->ar = new int[size];
+	for (int i = 0; i < size; i++)
+		this->ar[i] = ar.ar[i];
 }
 
 int MyArray::getSize() const
@@ -44,6 +47,14 @@ void MyArray::show() const
 
 void MyArray::addCapacity(int n)
 {
+	int* temp = new int[size+n];
+	for (int i = 0; i < size; i++)
+		temp[i] = ar[i];
+	delete[] ar;
+	ar = temp;
+	for (int i = size; i < size+n; i++)
+		ar[i] = 0;
+	size += n;
 }
 
 int & MyArray::operator[](int index)
@@ -64,4 +75,6 @@ MyArray & MyArray::operator=(const MyArray & ar)
 
 MyArray::~MyArray()
 {
+	delete[] ar;
+	size = 0;
 }
