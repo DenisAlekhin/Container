@@ -64,6 +64,8 @@ int & MyArray::operator[](int index)
 
 MyArray & MyArray::operator=(const MyArray & ar)
 {
+	if (this == &ar)
+		return *this;
 	delete [] this->ar;
 	size = 0;
 	size = ar.size;
