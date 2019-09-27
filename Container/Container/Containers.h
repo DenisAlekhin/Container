@@ -16,11 +16,12 @@ public:
 
 class MyArray : public Container
 {
+protected:
 	int *ar;
 public:
 	MyArray();
 	MyArray(int n);								//создает массив из n нулевых элементов
-	MyArray(const MyArray &ar); 				//выделяет память и поэлементно копирует объект ar
+	MyArray(const MyArray &ar);					//выделяет память и поэлементно копирует объект ar
 
 	int getSize() const;						//возвращает size
 	int getCapacity() const;					//возвращает size

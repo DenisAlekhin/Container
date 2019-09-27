@@ -47,7 +47,7 @@ void MyArray::show() const
 
 void MyArray::addCapacity(int n)
 {
-	int* temp = new int[size+n];
+	int* temp = new int[size + n];
 	for (int i = 0; i < size; i++)
 		temp[i] = ar[i];
 	delete[] ar;
